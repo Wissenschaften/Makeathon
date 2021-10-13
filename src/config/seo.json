@@ -1,0 +1,11 @@
+{
+    "HtmlLanguage": "en",
+    "Head": {
+        "Title": "Feward",
+        "Meta": {
+            "Sitename": "Feward",
+            "Description": "Feward Website",
+            "BaseUrl": "https://www.feward.com"
+        }
+    }
+}

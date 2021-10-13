@@ -1,0 +1,11 @@
+{
+    "name": "Feward",
+    "icons": [
+        {
+            "src": "\/icon.png",
+            "sizes": "36x36",
+            "type": "image\/png",
+            "density": "1"
+        }
+    ]
+}
