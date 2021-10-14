@@ -50,11 +50,11 @@ const Header: React.FC<FHeaderProps> = (props) => {
                                             style={{padding: '0px 10px 0px 0px'}}
                                         >
                                             {menuItem.dropdownItems.map((dropdownItem: any) => (
-                                                <Link key={`dropdownItem${key}`} href={dropdownItem.href} className={classes.link} target={'_blank'}>{dropdownItem.item}</Link>
+                                                <Link key={`dropdownItem${key}`} href={dropdownItem.href} className={classes.link} target={dropdownItem.target}>{dropdownItem.item}</Link>
                                             ))}
                                         </NavDropdown>
                                     :
-                                        <Link href={menuItem.href} className={classes.link} target={'_blank'}>{menuItem.item}</Link>
+                                        <Link href={menuItem.href} className={classes.link} target={menuItem.target}>{menuItem.item}</Link>
                                     }
                                 </Box>
                             ))}
