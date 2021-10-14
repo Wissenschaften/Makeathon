@@ -7,7 +7,7 @@ export const menuItems = [
     },
     {
       "item": 'Papers',
-      "href": "./papers",
+      "href": "./papers.html",
       "isDropdown": false,
       "target": "_self"
     },
