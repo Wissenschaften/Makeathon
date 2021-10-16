@@ -1,11 +1,11 @@
 """Use the ML model to predict the taxi demand."""
 import numpy as np
-import os.path
 
 
 class MLInterface:
     def __init__(self, config):
         self._prediction = [0, np.zeros(shape=(1,))]
+        self._cluster_centers_data = None
         self._config = config
 
     def predict_demand(self, timestamp):
@@ -28,11 +28,11 @@ class MLInterface:
         prediction = np.random.randint(100, size=1000)
         # TODO: implement actual prediction interface
         self._prediction = [current_bin, prediction]
-        self._prediction_to_json()
 
+    @property
     def cluster_centers(self):
         """Returns coordinates for a given cluster as a tuple of two floats."""
-        return np.load(self._config["path_to_cluster_centers"])
+        if self._cluster_centers_data is None:
+            self._cluster_centers_data = np.load(self._config["path_cluster_centers"])
+        return self._cluster_centers_data
 
-    def _prediction_to_json(self):
-        pass
