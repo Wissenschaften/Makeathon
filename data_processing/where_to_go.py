@@ -1,9 +1,10 @@
 """Tell a taxi where to drive for the fastest pickup time."""
 import json
+import time
 import numpy as np
 import geopy.distance
 from pprint import pprint
-from ml_interface import predict_demand, cluster_centers
+from ml_interface import MLInterface
 
 
 class WhereToGo:
@@ -11,8 +12,8 @@ class WhereToGo:
         # Import config
         with open(path_to_config) as config_file:
             self._config = json.load(config_file)
-
-        self._cluster_centers = cluster_centers(self._config)
+        self._ml_interface = MLInterface(self._config)
+        self._cluster_centers = self._ml_interface.cluster_centers()
         self._n_clusters = len(self._cluster_centers)
 
         # Initialize list of taxis per cluster
@@ -21,16 +22,17 @@ class WhereToGo:
         else:
             self._taxi_positions = np.zeros(shape=(self._n_clusters,))
 
-    def where_to_go(self, taxi_position, top_n_clusters=3):
+    def where_to_go(self, taxi_position, top_n_clusters=3, timestamp=time.time()):
         """Predicts to which cluster a taxi should go.
 
          Args:
             taxi_position: Current position of the taxi in cartesian coordinates as a tuple of two floats.
             top_n_clusters: How many of the top clusters should be returned.
+            timestamp: Current time of prediction. (Only relevant if data updates are implemented)
 
         Returns the top clusters where a taxi should go as a dictionary.
         """
-        predicted_demand = predict_demand()  # TODO: arguments
+        predicted_demand = self._ml_interface.predict_demand(timestamp)
         self._taxi_positions = predicted_demand + np.random.randint(5)-2
         time_to_clusters, distance_to_clusters = self._calc_time_distance(taxi_position)
         corrected_demand = self._correct_demand(predicted_demand, time_to_clusters)
