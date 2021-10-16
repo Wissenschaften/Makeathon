@@ -1,27 +1,10 @@
 {
     "0": {
-        "corrected_demand": -0.35156875854306835,
-        "predicted_demand": 56.0,
-        "time_to_cluster": 0.7031375170861367,
-        "distance_to_destination": 0.23437917236204558,
-        "other_taxis": 56,
-        "destination_nr": 545,
-        "timeslot": 30,
-        "destination_position": [
-            40.737980826478385,
-            -73.99220653052105
-        ],
-        "current_position": [
-            40.73842628750171,
-            -73.99396124195768
-        ]
-    },
-    "1": {
-        "corrected_demand": -0.3823632724395509,
-        "predicted_demand": 74.0,
+        "corrected_demand": 2.6176367275604493,
+        "predicted_demand": 33,
         "time_to_cluster": 0.7647265448791019,
         "distance_to_destination": 0.25490884829303395,
-        "other_taxis": 74,
+        "other_taxis": 30,
         "destination_nr": 997,
         "timeslot": 30,
         "destination_position": [
@@ -33,17 +16,34 @@
             -73.99396124195768
         ]
     },
-    "2": {
-        "corrected_demand": -0.3824963321727852,
-        "predicted_demand": 68.0,
-        "time_to_cluster": 0.7649926643455705,
-        "distance_to_destination": 0.2549975547818568,
-        "other_taxis": 68,
-        "destination_nr": 881,
+    "1": {
+        "corrected_demand": 2.4854419401415813,
+        "predicted_demand": 7,
+        "time_to_cluster": 1.029116119716837,
+        "distance_to_destination": 0.343038706572279,
+        "other_taxis": 4,
+        "destination_nr": 38,
         "timeslot": 30,
         "destination_position": [
-            40.73963696079456,
-            -73.99519297575056
+            40.74042229153162,
+            -73.99462779133665
+        ],
+        "current_position": [
+            40.73842628750171,
+            -73.99396124195768
+        ]
+    },
+    "2": {
+        "corrected_demand": 2.459324704841754,
+        "predicted_demand": 27,
+        "time_to_cluster": 1.081350590316492,
+        "distance_to_destination": 0.360450196772164,
+        "other_taxis": 24,
+        "destination_nr": 786,
+        "timeslot": 30,
+        "destination_position": [
+            40.736283914465425,
+            -73.9935608321444
         ],
         "current_position": [
             40.73842628750171,

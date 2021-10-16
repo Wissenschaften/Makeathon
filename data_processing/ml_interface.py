@@ -1,4 +1,5 @@
 """Use the ML model to predict the taxi demand."""
+import os
 import numpy as np
 
 
@@ -26,6 +27,14 @@ class MLInterface:
 
         Returns: Numpy array where the length is equal to the number of clusters"""
         prediction = np.random.randint(100, size=1000)
+        print(prediction.shape)
+        path = os.path.join(
+                "../data/",
+                "2016-02_1000_60.npy"
+            )
+        with open(path, 'rb') as f:
+            prediction = np.load(f, allow_pickle=True)
+        print(prediction.shape)
         # TODO: implement actual prediction interface
         self._prediction = [current_bin, prediction]
 

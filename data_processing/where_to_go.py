@@ -55,7 +55,13 @@ class WhereToGo:
             with open(path_top_destinations, 'w') as json_file:
                 json.dump(top_clusters, json_file, indent=4)
         if self._config["path_heatmap"]:
-            self._heatmap_data_to_json(corrected_demand)
+            self._heatmap_data_to_json(
+                corrected_demand,
+                predicted_demand,
+                top_clusters,
+                types=['corrected', 'predicted', 'top']
+            )
+
 
         return top_clusters
 
@@ -134,19 +140,68 @@ class WhereToGo:
         corrected_prediction[corrected_prediction < 0.0] = 0.0
         return corrected_prediction
 
-    def _heatmap_data_to_json(self, demand):
-        clusters = self._ml_interface.cluster_centers
-        heatmap_list = [
-            [
-                float(clusters[cluster][0]),
-                float(clusters[cluster][1]),
-                demand[cluster]
+    def _heatmap_data_to_json(
+            self,
+            corrected_demand,
+            predicted_demand,
+            top_clusters,
+            types=[],
+            scaling=1.0
+    ):
+        """Heatmap types
+        'corrected': dense heatmap with corrected demand
+        'predicted': dense heatmap with predicted pickups
+        'top': dense heatmap where only top clusters have values"""
+        with open(self._config["path_grid"], 'rb') as f:
+            grid = np.load(f, allow_pickle=True)
+        if 'corrected' in types:
+            heatmap_list = [
+                [
+                    float(grid[i][j][1]),
+                    float(grid[i][j][2]),
+                    corrected_demand[int(grid[i][j][0])]*scaling
+                ]
+                for i in range(len(grid))
+                for j in range(len(grid))
             ]
-            for cluster in range(len(demand))
-        ]
-        heatmap_path = os.path.join(
+            heatmap_path = os.path.join(
                 self._config["path_heatmap"],
-                "heatmap.json"
+                f"heatmap_corrected.json"
             )
-        with open(heatmap_path, 'w') as json_file:
-            json.dump(heatmap_list, json_file, indent=4)
+            with open(heatmap_path, 'w') as json_file:
+                json.dump(heatmap_list, json_file, indent=4)
+        if 'predicted' in types:
+            heatmap_list = [
+                [
+                    float(grid[i][j][1]),
+                    float(grid[i][j][2]),
+                    predicted_demand[int(grid[i][j][0])]*scaling
+                ]
+                for i in range(len(grid))
+                for j in range(len(grid))
+            ]
+            heatmap_path = os.path.join(
+                self._config["path_heatmap"],
+                f"heatmap_predicted.json"
+            )
+            with open(heatmap_path, 'w') as json_file:
+                json.dump(heatmap_list, json_file, indent=4)
+        if 'top' in types:
+            top_cluster_list = [value['destination_nr'] for key, value in top_clusters.items()]
+            print(top_cluster_list)
+            heatmap_list = [
+                [
+                    float(grid[i][j][1]),
+                    float(grid[i][j][2]),
+                    corrected_demand[int(grid[i][j][0])]*scaling
+                ]
+                for i in range(len(grid))
+                for j in range(len(grid))
+                if int(grid[i][j][0]) in top_cluster_list
+            ]
+            heatmap_path = os.path.join(
+                    self._config["path_heatmap"],
+                    f"heatmap_top.json"
+                )
+            with open(heatmap_path, 'w') as json_file:
+                json.dump(heatmap_list, json_file, indent=4)
