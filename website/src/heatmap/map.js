@@ -1,9 +1,8 @@
 import React from "react";
-import { Map as LeafletMap, TileLayer, Marker, Popup } from "react-leaflet";
-import "../../node_modules/leaflet/dist/leaflet.css";
-
-import HeatmapLayer from "react-leaflet-heatmap-layer";
 import { geojson } from "./atd";
+import "../../node_modules/leaflet/dist/leaflet.css";
+import HeatmapLayer from "react-leaflet-heatmap-layer";
+import { Map as LeafletMap, TileLayer, Marker, Popup } from "react-leaflet";
 
 class Map extends React.Component {
   constructor() {
