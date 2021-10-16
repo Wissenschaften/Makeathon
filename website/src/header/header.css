@@ -7,13 +7,13 @@ body {
 
 .header {
   overflow: hidden;
-  background-color: #f1f1f1;
+  background-color: #ffc600;
   padding: 20px 10px;
 }
 
 .header a {
   float: left;
-  color: black;
+  color: #0b0b0a;
   text-align: center;
   padding: 12px;
   text-decoration: none;
@@ -32,7 +32,7 @@ body {
 }
 
 .header a:hover {
-  background-color: #ddd;
+  background-color: #eee;
   color: black;
 }
 

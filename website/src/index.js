@@ -7,12 +7,17 @@ import Map from "./heatmap/map";
 
 import "./styles.css";
 
+import Homepage from './homepage';
+import Resources from './resources';
+
 function App() {
   return (
-    <>
+    <Router>
         <Header />
-        <Map />
-    </>
+        <Route exact path="/" component={Homepage} />
+        <Route path="/heatmap" component={Map} />
+        <Route path="/resources" component={Resources} />
+    </Router>
 )
 }
 
