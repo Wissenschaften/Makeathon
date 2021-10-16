@@ -7,11 +7,11 @@ const Header = () => {
     
     return (
          <div class="header">
-            <a href="/" class="logo" style={{paddingLeft: '3.2%'}}>AIvengers</a>
+            <a href="/" class="logo" style={{marginLeft: '3.2%'}}>AIvengers</a>
             <div class="header-right">
-                {/* <Link to="/">Dashboard</Link>
-                <Link to="/jobs">Joblist</Link>
-                <Link to="/upload">Job Upload</Link> */}
+                <Link to="/">Home</Link>
+                <Link to="/heatmap">Density Map</Link>
+                <Link to="/resources">Resources</Link>
             </div>
         </div> 
     )
