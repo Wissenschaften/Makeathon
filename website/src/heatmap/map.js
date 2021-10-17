@@ -18,7 +18,7 @@ class Map extends React.Component {
   render() {
     return (
       <div class="heatmapContainer">
-        <div class="mapArea" style={{height: '85vh', width: '163vh'}}>
+        <div class="mapArea" style={{height: '85vh', width: '150vh'}}>
           <LeafletMap center={this.state.position} zoom={this.state.zoom}>
             <HeatmapLayer
               points={geojson}
@@ -36,7 +36,7 @@ class Map extends React.Component {
           </LeafletMap> 
         </div>
         <div class="infoArea">
-          <div class="starsArea" style={{width: '42vh'}}>
+          <div class="starsArea" style={{width: '48vh'}}>
             {/* <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
@@ -45,6 +45,7 @@ class Map extends React.Component {
             <p>Score: 2.618</p>
             <p>Expected driving time: 30min</p>
             <p>Number of the taxis in the area: 30</p>
+            <button class="button">Go Here</button>
             <hr />
           </div>
           <div class="commentsArea">
@@ -56,6 +57,7 @@ class Map extends React.Component {
             <p>Score: 2.485</p>
             <p>Expected driving time: 30min</p>
             <p>Number of the taxis in the area: 4</p>
+            <button class="button">Go Here</button>
             <hr />
           </div>
           <div class="buttonArea">
@@ -67,7 +69,8 @@ class Map extends React.Component {
             <p>Score: 2.459</p>
             <p>Expected driving time: 30min</p>
             <p>Number of the taxis in the area: 24</p>
-            <button class="button">Your best service</button>
+            <button class="button">Go Here</button>
+            <hr />
           </div>
         </div>
       </div>

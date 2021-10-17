@@ -15,6 +15,7 @@ body {
   grid-template-rows: 1fr;
   gap: 0px 0px;
   grid-auto-flow: row;
+  width: 100%;
   grid-template-areas:
     "mapArea infoArea";
 }
@@ -58,7 +59,6 @@ body {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin-top: 20px;
   cursor: pointer;
   width: 100%;
 }

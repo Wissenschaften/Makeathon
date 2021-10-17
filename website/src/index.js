@@ -12,8 +12,7 @@ function App() {
   return (
     <Router>
         <Header />
-        <Route exact path="/" component={Homepage} />
-        <Route path="/heatmap" component={Map} />
+        <Route exact path="/" component={Map} />
         <Route path="/resources" component={Resources} />
     </Router>
 )
