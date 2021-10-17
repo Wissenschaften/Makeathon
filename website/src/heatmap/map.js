@@ -18,7 +18,7 @@ class Map extends React.Component {
   render() {
     return (
       <div class="heatmapContainer">
-        <div class="mapArea" style={{height: '85vh', width: '150vh'}}>
+        <div class="mapArea" style={{height: '85vh', width: '152.8vh'}}>
           <LeafletMap center={this.state.position} zoom={this.state.zoom}>
             <HeatmapLayer
               points={geojson}

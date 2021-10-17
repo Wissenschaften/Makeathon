@@ -11,7 +11,7 @@ body {
 
 .heatmapContainer {
   display: grid;
-  grid-template-columns: 1fr min-content;
+  grid-template-columns: min-content min-content;
   grid-template-rows: 1fr;
   gap: 0px 0px;
   grid-auto-flow: row;
@@ -26,12 +26,12 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: min-content min-content min-content;
-  gap: 0px 0px;
+  gap: 18px 0px;
   grid-auto-flow: row;
   border: 2px solid #ffc600;
   border-radius: 25px;
-  padding: 10px;
-  margin: 4px;
+  padding: 13px;
+  margin: 13px;
   grid-template-areas:
     "starsArea"
     "commentsArea"
@@ -65,4 +65,8 @@ body {
 
 hr {
   border-top: 1px solid #ffc600;
+}
+
+p {
+  margin: 4px
 }
