@@ -7,7 +7,7 @@ const Header = () => {
     
     return (
          <div className="header">
-            <a href="/" className="logo" style={{marginLeft: '3.2%'}}>AIvengers</a>
+            <a href="/" className="logo" style={{marginLeft: '3.2%'}}>WhereToGo</a>
             <div className="header-right">
                 <Link to="/">Home</Link>
                 <Link to="/heatmap">Density Map</Link>

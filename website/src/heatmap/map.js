@@ -18,7 +18,7 @@ class Map extends React.Component {
   render() {
     return (
       <div class="heatmapContainer">
-        <div class="mapArea" style={{height: '85vh', width: '150vh'}}>
+        <div class="mapArea" style={{height: '85vh', width: '163vh'}}>
           <LeafletMap center={this.state.position} zoom={this.state.zoom}>
             <HeatmapLayer
               points={geojson}
@@ -37,21 +37,37 @@ class Map extends React.Component {
         </div>
         <div class="infoArea">
           <div class="starsArea" style={{width: '42vh'}}>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
+            {/* <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star"></span>
-            <p>Score: 2.6176367275604493</p>
+            <span class="fa fa-star"></span> */}
+            <p>Score: 2.618</p>
             <p>Expected driving time: 30min</p>
-            <p>Number of the taxis in the area: 38</p>
+            <p>Number of the taxis in the area: 30</p>
+            <hr />
           </div>
           <div class="commentsArea">
-            
+            {/* <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span> */}
+            <p>Score: 2.485</p>
+            <p>Expected driving time: 30min</p>
+            <p>Number of the taxis in the area: 4</p>
+            <hr />
           </div>
           <div class="buttonArea">
-            <textarea id="w3review" name="w3review" rows="4" cols="36" placeholder="Your comments are valuable, plase tols us what you thought"></textarea>
-            <button class="button">Button</button>
+            {/* <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span> */}
+            <p>Score: 2.459</p>
+            <p>Expected driving time: 30min</p>
+            <p>Number of the taxis in the area: 24</p>
+            <button class="button">Your best service</button>
           </div>
         </div>
       </div>
