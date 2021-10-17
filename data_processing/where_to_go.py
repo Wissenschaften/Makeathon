@@ -59,10 +59,8 @@ class WhereToGo:
                 corrected_demand,
                 predicted_demand,
                 top_clusters,
-                types=['corrected', 'predicted', 'top']
+                types=['classic']
             )
-
-
         return top_clusters
 
     def send_taxi(self, cluster):
@@ -151,7 +149,9 @@ class WhereToGo:
         """Heatmap types
         'corrected': dense heatmap with corrected demand
         'predicted': dense heatmap with predicted pickups
-        'top': dense heatmap where only top clusters have values"""
+        'top': dense heatmap where only top clusters have values
+        'classic': heatmap without grid based on the corrected prediction
+        """
         with open(self._config["path_grid"], 'rb') as f:
             grid = np.load(f, allow_pickle=True)
         if 'corrected' in types:
@@ -202,6 +202,22 @@ class WhereToGo:
             heatmap_path = os.path.join(
                     self._config["path_heatmap"],
                     f"heatmap_top.json"
+                )
+            with open(heatmap_path, 'w') as json_file:
+                json.dump(heatmap_list, json_file, indent=4)
+        if 'classic' in types:
+            clusters = self._ml_interface.cluster_centers
+            heatmap_list = [
+                [
+                    float(clusters[cluster][0]),
+                    float(clusters[cluster][1]),
+                    corrected_demand[cluster]
+                ]
+                for cluster in range(len(corrected_demand))
+            ]
+            heatmap_path = os.path.join(
+                    self._config["path_heatmap"],
+                    f"heatmap.json"
                 )
             with open(heatmap_path, 'w') as json_file:
                 json.dump(heatmap_list, json_file, indent=4)

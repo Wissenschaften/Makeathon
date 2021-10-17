@@ -26,16 +26,12 @@ class MLInterface:
         """Use machine learning model to predict taxi  demand.
 
         Returns: Numpy array where the length is equal to the number of clusters"""
-        prediction = np.random.randint(100, size=1000)
-        print(prediction.shape)
-        path = os.path.join(
-                "../data/",
-                "2016-02_1000_60.npy"
-            )
+        path = self._config["path_prediction"]
+        # load predicted numpy array
         with open(path, 'rb') as f:
             prediction = np.load(f, allow_pickle=True)
         print(prediction.shape)
-        # TODO: implement actual prediction interface
+        # TODO: implement interface that calls ml model directly
         self._prediction = [current_bin, prediction]
 
     @property
