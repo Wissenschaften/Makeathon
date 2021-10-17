@@ -1,5 +1,5 @@
 import React from "react";
-import { geojson } from "./data";
+import geojson from "./data.json";
 import "../../node_modules/leaflet/dist/leaflet.css";
 import HeatmapLayer from "react-leaflet-heatmap-layer";
 import { Map as LeafletMap, TileLayer, Marker, Popup } from "react-leaflet";
@@ -20,11 +20,11 @@ class Map extends React.Component {
       <LeafletMap center={this.state.position} zoom={this.state.zoom}>
         <HeatmapLayer
           points={geojson}
-          longitudeExtractor={(m) => m.destination_position[0]}
-          latitudeExtractor={(m) => m.destination_position[1]}
-          intensityExtractor={(m) => parseFloat(m.destination_position[1])}
+          longitudeExtractor={(m) => m[0]}
+          latitudeExtractor={(m) => m[1]}
+          intensityExtractor={(m) => parseFloat(m[1])}
           max={100}
-          minOpacity={0.2}
+          minOpacity={0.3}
         />
 
         <TileLayer
