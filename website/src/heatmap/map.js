@@ -10,7 +10,7 @@ class Map extends React.Component {
     this.state = {
       lat: 40.7397,
       lng: -73.9929,
-      zoom: 12,
+      zoom: 10,
       position: [40.7397, -73.9929]
     };
   }
@@ -26,7 +26,7 @@ class Map extends React.Component {
               latitudeExtractor={(m) => m[0]}
               intensityExtractor={(m) => parseFloat(m[2])}
               max={100}
-              minOpacity={0.4}
+              minOpacity={0.3}
             />
 
             <TileLayer
