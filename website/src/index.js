@@ -1,8 +1,7 @@
 import React from "react";
 import Map from "./heatmap/map";
 import ReactDOM from "react-dom";
-import Homepage from './homepage';
-import Resources from './resources';
+import Heatmap from './heatmap/heatmap';
 import Header from './header/header';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
@@ -13,7 +12,7 @@ function App() {
     <Router>
         <Header />
         <Route exact path="/" component={Map} />
-        {/* <Route path="/resources" component={Resources} /> */}
+        <Route path="/recommendations" component={Heatmap} />
     </Router>
 )
 }
