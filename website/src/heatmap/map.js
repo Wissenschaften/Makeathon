@@ -22,9 +22,9 @@ class Map extends React.Component {
           points={geojson}
           longitudeExtractor={(m) => m[1]}
           latitudeExtractor={(m) => m[0]}
-          intensityExtractor={(m) => parseFloat(m[0])}
+          intensityExtractor={(m) => parseFloat(m[2])}
           max={100}
-          minOpacity={0.3}
+          minOpacity={0.4}
         />
 
         <TileLayer
