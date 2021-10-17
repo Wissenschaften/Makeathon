@@ -13,7 +13,7 @@ function App() {
     <Router>
         <Header />
         <Route exact path="/" component={Map} />
-        <Route path="/resources" component={Resources} />
+        {/* <Route path="/resources" component={Resources} /> */}
     </Router>
 )
 }
