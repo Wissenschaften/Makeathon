@@ -20,9 +20,9 @@ class Map extends React.Component {
       <LeafletMap center={this.state.position} zoom={this.state.zoom}>
         <HeatmapLayer
           points={geojson}
-          longitudeExtractor={(m) => m[0]}
-          latitudeExtractor={(m) => m[1]}
-          intensityExtractor={(m) => parseFloat(m[1])}
+          longitudeExtractor={(m) => m[1]}
+          latitudeExtractor={(m) => m[0]}
+          intensityExtractor={(m) => parseFloat(m[0])}
           max={100}
           minOpacity={0.3}
         />
